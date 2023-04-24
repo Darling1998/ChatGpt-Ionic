@@ -74,6 +74,46 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+
+  /** chatcolor **/
+  --ion-color-chatcolor: #E7EDEF;
+	--ion-color-chatcolor-rgb: 231,237,239;
+	--ion-color-chatcolor-contrast: #000000;
+	--ion-color-chatcolor-contrast-rgb: 0,0,0;
+	--ion-color-chatcolor-shade: #cbd1d2;
+	--ion-color-chatcolor-tint: #e9eff1;
+
+
+  --ion-color-backgroundchat: #a9b7aa;
+	--ion-color-backgroundchat-rgb: 169,183,170;
+	--ion-color-backgroundchat-contrast: #000000;
+	--ion-color-backgroundchat-contrast-rgb: 0,0,0;
+	--ion-color-backgroundchat-shade: #95a196;
+	--ion-color-backgroundchat-tint: #b2beb3;
+
+
+}
+
+
+
+.ion-color-backgroundchat {
+	--ion-color-base: var(--ion-color-backgroundchat);
+	--ion-color-base-rgb: var(--ion-color-backgroundchat-rgb);
+	--ion-color-contrast: var(--ion-color-backgroundchat-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-backgroundchat-contrast-rgb);
+	--ion-color-shade: var(--ion-color-backgroundchat-shade);
+	--ion-color-tint: var(--ion-color-backgroundchat-tint);
+}
+
+
+.ion-color-chatcolor {
+	--ion-color-base: var(--ion-color-chatcolor);
+	--ion-color-base-rgb: var(--ion-color-chatcolor-rgb);
+	--ion-color-contrast: var(--ion-color-chatcolor-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-chatcolor-contrast-rgb);
+	--ion-color-shade: var(--ion-color-chatcolor-shade);
+	--ion-color-tint: var(--ion-color-chatcolor-tint);
 }
 
 @media (prefers-color-scheme: dark) {

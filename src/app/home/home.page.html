@@ -1,20 +1,53 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-row class="top-40 ion-justify-content-center" style="padding-top: 30px;padding-bottom: 15px;">
+      <ion-col size="12" class="ion-text-center">
+        <ion-label>
+          <ion-title> <strong>CHATGPT-</strong> Ionic </ion-title>
+        </ion-label>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card style=" box-shadow: none !important;">
+
+    <ion-grid>
+      <ion-row  class="ion-justify-content-center">
+        <div *ngIf="!messages.length" class="empty ion-text-center">
+          <h1>No hay nada que mostrar</h1>
+          <ion-avatar style="margin: 0 auto;" >
+            <img src="assets/img/empty.svg" />
+          </ion-avatar>
+        </div>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  
+
+  <ion-item lines="none" [ngClass]="{'bot':item.origin !=='me'}" class="chat-item"
+    *ngFor="let item of messages;  let i= index">
+    <ion-avatar>
+      <img [src]="item.origin == 'bot' ? 'assets/img/openai.svg' :'assets/img/incognito.svg'" />
+    </ion-avatar>
+    <ion-label style="padding-left: 20px" class="ion-text-wrap">
+      <p>{{item.content}}</p>
+      <ion-spinner *ngIf="search && (i+1 == messages.length)" name="dots"></ion-spinner>
+    </ion-label>
+  </ion-item>
 </ion-content>
+
+<ion-footer class="ion-padding">
+  <form [formGroup]="form">
+    <ion-item class="input-msg">
+      <ion-textarea placeholder="Escribe algo..." [autoGrow]="true" formControlName="message"></ion-textarea>
+      <ion-buttons slot="end">
+        <ion-button fill="solid" color="chatcolor" (click)="sendMessage()">
+          <ion-icon color="tertiary" name="send"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </form>
+</ion-footer>
